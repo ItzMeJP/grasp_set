@@ -1,2 +1,3 @@
-# my_action_skill_template
-A ROS action skill package template.
+# grasp_set_skill
+ROS package to generate the candidates associated with an specific object
+

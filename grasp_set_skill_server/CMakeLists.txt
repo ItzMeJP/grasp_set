@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(my_action_skill_server)
+project(grasp_set_skill_server)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -9,12 +9,12 @@ find_package(catkin
              REQUIRED COMPONENTS
              roscpp
              actionlib
-             my_action_skill_msgs
+             grasp_set_skill_msgs
              message_generation
-             #rospy
-             #std_msgs
-             #geometry_msgs
-             #tf
+             rospy
+             std_msgs
+             geometry_msgs
+             tf
 )
 
 #External packages
@@ -24,12 +24,14 @@ find_package(PCL REQUIRED)
 #Headers
 file(GLOB PROGRAM_HEADERS RELATIVE ${PROJECT_SOURCE_DIR} "include/${PROJECT_NAME}/*.h")
 
+
 catkin_package(
                INCLUDE_DIRS
                include
                LIBRARIES
                ${PROJECT_NAME}
 )
+
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
@@ -47,7 +49,7 @@ add_library(common
             )
 
 add_library(${PROJECT_NAME}
-            src/my_action_skill_server.cpp
+            src/grasp_set_skill_server.cpp
             #and all child classes.cpp
             )
 
@@ -66,7 +68,7 @@ target_link_libraries(${PROJECT_NAME}
 
 ## Define a executable
 add_executable(${PROJECT_NAME}_node
-               src/my_action_skill_server_node.cpp)
+               src/grasp_set_skill_server_node.cpp)
 
 ## Define the executable dependencies
 target_link_libraries(${PROJECT_NAME}_node
@@ -75,9 +77,3 @@ target_link_libraries(${PROJECT_NAME}_node
                       ${OpenCV_LIBRARIES}
                       ${PCL_LIBRARIES}
                       ${PROJECT_NAME})
-
-
-
- #add_executable(${PROJECT_NAME} src/my_action_skill_server.cpp src/my_action_skill_server_node.cpp ${PROGRAM_HEADERS})
- #target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
- #add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

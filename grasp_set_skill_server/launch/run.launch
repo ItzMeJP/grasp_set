@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Arguments -->
+    <arg name="action_name" default="GraspSetSkill"/>
+    <arg name="yaml_config_file" default="$(find grasp_set_skill_server)/yaml/config.yaml"/>
+    <!-- The grasp candidate file for each object -->
+    <arg name="yaml_object_0_candidates_file" default="$(find grasp_set_skill_server)/yaml/object_0_candidates_file.yaml"/>
+    <arg name="yaml_object_1_candidates_file" default="$(find grasp_set_skill_server)/yaml/object_1_candidates_file.yaml"/>
+    <arg name="yaml_object_2_candidates_file" default="$(find grasp_set_skill_server)/yaml/object_2_candidates_file.yaml"/>
+
+    <!-- Grasp Set Skill -->
+    <node name="grasp_set_skill_node" pkg="grasp_set_skill_server" type="grasp_set_skill_server_node" output="screen">
+      <param name='action_name' value='$(arg action_name)' />
+      <rosparam command="load" file="$(arg yaml_config_file)" subst_value="false" if="$(eval bool(yaml_config_file))" />
+      <rosparam command="load" ns="object_0" file="$(arg yaml_object_0_candidates_file)" subst_value="false" if="$(eval bool(yaml_object_0_candidates_file))" />
+      <rosparam command="load" ns="object_1" file="$(arg yaml_object_1_candidates_file)" subst_value="false" if="$(eval bool(yaml_object_1_candidates_file))" />
+      <rosparam command="load" ns="object_2" file="$(arg yaml_object_2_candidates_file)" subst_value="false" if="$(eval bool(yaml_object_2_candidates_file))" />
+    </node>
+</launch>

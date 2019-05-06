@@ -1,0 +1,33 @@
+candidate_0:
+    gripper: 0 # 0-SUCTION; 1-ROBOTIQ_2F_C40666
+    position:
+        x: 0.0
+        y: 2.0
+        z: 0.0
+    orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+candidate_1:
+    gripper: 0 # 0-SUCTION; 1-ROBOTIQ_2F_C40666
+    position:
+        x: 0.0
+        y: -2.0
+        z: 0.0
+    orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+candidate_2:
+    gripper: 1 # 0-SUCTION; 1-ROBOTIQ_2F_C40666
+    position:
+        x: 0.0
+        y: 1.0
+        z: 0.0
+    orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0

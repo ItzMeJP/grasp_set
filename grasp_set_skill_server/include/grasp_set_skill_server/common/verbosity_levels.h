@@ -26,7 +26,7 @@
 // project includes
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   </includes>   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-namespace my_action_skill {
+namespace grasp_set_skill {
 
 // ############################################################################   verbosity_levels   ############################################################################
 namespace verbosity_levels {
@@ -35,5 +35,5 @@ bool setVerbosityLevelPCL(std::string level);
 bool setVerbosityLevelROS(std::string level);
 
 } /* namespace math_utils */
-} /* namespace my_action_skill */
+} /* namespace grasp_set_skill */
 

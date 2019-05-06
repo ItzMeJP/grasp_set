@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" name="my_action_skill" qt:editorversion="4.7.0" xmlns:qt="http://www.qt.io/2015/02/scxml-ext">
-    <state id="MyActionSkill">
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" name="grasp_set_skill" qt:editorversion="4.7.0" xmlns:qt="http://www.qt.io/2015/02/scxml-ext">
+    <state id="GraspSet">
         <qt:editorinfo scenegeometry="-80.88;-373.25;39.72;3.39;181.82;107.24" geometry="-80.88;-373.25;120.60;376.64;181.82;107.24"/>
         <datamodel>
             <data id="actionName" expr="&quot;MyActionSkill&quot;"/>

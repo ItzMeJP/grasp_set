@@ -1,0 +1,2 @@
+int64 gripper
+geometry_msgs/TransformStamped transform_stamped

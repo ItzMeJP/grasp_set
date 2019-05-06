@@ -1,12 +1,10 @@
 #goal definition
-string goal_text
-float32 goal_float
-uint32 goal_number
+string object_name
 ---
 #result definition
+grasp_set_skill_msgs/GraspCandidateArr grasp_candidates
 int32 percentage
 string skillStatus
-string outcome
 ---
 #feedback
 int32 percentage
