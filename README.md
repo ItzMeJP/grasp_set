@@ -1,8 +1,6 @@
 # grasp_set_skill
 ROS skill package to read the teached grasp candidates pose associated with a specific object, and convert it in the ROS structure.
-
 Each grasp candidate is a pose related to origin base frame of the object with an associated gripper type.
-
 The gripper types are: 
 - 0 - SUCTION
 - 1 - ROBOTIQ_2F_C40666
@@ -11,11 +9,17 @@ The run.launch in grasp_set_skill_server/launch is resposible to load the parame
 
 ## Installation
 - Download the package inside a worskpace directory.
+
 > cd $(catkin_ws)/src
+
 > git clone https://github.com/ItzMeJP/grasp_set.git
+
 - Compile the grasp_set_skill_msgs.
+
 > catkin build grasp_set_skill_msgs
+
 - Compile the others packages.
+
 > catkin build grasp_set_skill_server
 
 > catkin build grasp_set_skill_client
