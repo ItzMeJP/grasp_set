@@ -108,7 +108,7 @@ namespace grasp_set_skill {
         std::string current_candidate;
         for (int j = 0; j < number_of_candidates_; ++j) {
 
-            candidate.transform_stamped.header.stamp = ros::Time::now();
+            candidate.transform_stamped.header.stamp = ros::Time::now(); // TODO: check if any issue can happen with this instruction code position
             candidate.transform_stamped.child_frame_id = candidates_grasps_tf_base_name_ +"_"+ std::to_string(j);
 
             current_candidate = "candidate_"+ std::to_string(j);
