@@ -79,8 +79,9 @@ namespace grasp_set_skill {
         this->node_handle_ = _node_handle;
         this->private_node_handle_ = _private_node_handle;
         private_node_handle_->param<std::string>("action_server_name", action_server_name_, "grasp_set_skill");
-        private_node_handle_->param<std::string>("candidates_grasps_tf_base_name", candidates_grasps_tf_base_name_,"grasp_candidate");
-        private_node_handle_->param<std::string>("object_tf_origin", object_tf_origin_name_, "object_origin");
+        private_node_handle_->param<std::string>("grasps_candidates_base_name", grasps_candidates_base_name_,"grasp_candidate");
+        private_node_handle_->param<std::string>("object_origin_base_name", object_origin_base_name_, "object_origin");
+        private_node_handle_->param<std::string>("object_estimated_base_name", object_estimated_base_name_, "object_identified"); // TODO: correct this (see if the object recognition enable this value)
 
         return true;
 
@@ -102,17 +103,19 @@ namespace grasp_set_skill {
         private_node_handle_->param("number_of_candidates", number_of_candidates_, 3);
 
         grasp_set_skill_msgs::GraspCandidate candidate;
-        candidate.transform_stamped.header.frame_id = object_tf_origin_name_;
+        candidate.transform_stamped.header.frame_id = object_namespace_ + "/" + object_origin_base_name_;
 
         int g;
         std::string current_candidate;
         for (int j = 0; j < number_of_candidates_; ++j) {
 
             candidate.transform_stamped.header.stamp = ros::Time::now(); // TODO: check if any issue can happen with this instruction code position
-            candidate.transform_stamped.child_frame_id = candidates_grasps_tf_base_name_ +"_"+ std::to_string(j);
+            candidate.transform_stamped.child_frame_id = object_namespace_ + "/" + grasps_candidates_base_name_ +"_"+ std::to_string(j);
 
             current_candidate = "candidate_"+ std::to_string(j);
-            checkParameters(current_candidate);
+
+            if(!checkParameters(object_namespace_ + "/" + current_candidate))
+                return false;
 
             private_node_handle_->param(object_namespace_ + "/" + current_candidate +"/gripper", g, 0);
             private_node_handle_->param(object_namespace_ + "/" + current_candidate +"/position/x", candidate.transform_stamped.transform.translation.x, 0.0);
@@ -151,7 +154,7 @@ namespace grasp_set_skill {
     bool GraspSet::checkParameters()
     {
         if (!private_node_handle_->hasParam("number_of_candidates")){
-            ROS_ERROR_STREAM("Please set the number of candidates in \"number_of_candidates\" tag.");
+            ROS_ERROR_STREAM("The number of candidates parameter is missing.");
             return false;
         }
 
@@ -160,8 +163,8 @@ namespace grasp_set_skill {
             ROS_ERROR_STREAM("The namespaces ("<< object_namespace_ << ") does not exist in the parameter server.");
             return false;
         }
-
-        return true;
+        else
+            return true;
 
     }
 
@@ -173,8 +176,8 @@ namespace grasp_set_skill {
                                                         number_of_candidates_ << " (\"number_of_candidates\" parameter value).");
             return false;
         }
-
-        return true;
+        else
+            return true;
 
     }
 

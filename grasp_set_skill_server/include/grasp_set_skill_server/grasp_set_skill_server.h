@@ -70,9 +70,11 @@ namespace grasp_set_skill {
         tf2_ros::StaticTransformBroadcaster static_broadcaster_;
         //std::vector<grasp_set_skill_msgs::GraspCandidate> candidates_; // create the TF based on a file
         grasp_set_skill_msgs::GraspCandidateArr grasp_candidates_arr_;
-        std::string candidates_grasps_tf_base_name_,
-                    object_tf_origin_name_,
-                    object_namespace_;
+        std::string grasps_candidates_base_name_,
+                    object_namespace_,
+                    object_origin_base_name_,
+                    object_estimated_base_name_;
+
 
     };
 }

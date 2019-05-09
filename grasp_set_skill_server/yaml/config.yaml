@@ -1,5 +1,5 @@
-ros_verbosity_level: 'INFO' 
+ros_verbosity_level: 'INFO'
 number_of_candidates: 3 # number os grasps candidates per object
-object_tf_origin: 'object_origin' #origin name of the object
+object_origin_base_name: 'origin' #origin name of the object
 candidates_grasps_tf_base_name: 'grasp_candidate' #base name of the candidates (the system will generate base_name_#NUMBER)
-
+object_estimated_base_name: 'detected'
