@@ -139,6 +139,8 @@ namespace grasp_set_skill {
 
         }
 
+        grasp_candidates_arr_.object_name = object_namespace_;
+
         return true;
 
     }
