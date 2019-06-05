@@ -1,4 +1,6 @@
 # grasp_set_skill
+## [DEPRECATED] See [Grasp Estimation](https://github.com/ItzMeJP/grasp_estimation)
+
 ROS skill package to read the teached grasp candidates pose associated with a specific object, and convert it in the ROS structure.
 Each grasp candidate is a pose related to origin base frame of the object with an associated gripper type.
 The gripper types are: 
